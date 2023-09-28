@@ -6,48 +6,10 @@ export const getInvalidRegistrationDataError = (
   messages: string[]
 ): ControledError =>
   new ControledError({
-    name: "INVALIDREGISTRATIONDATA",
-    message: "Invalid registration payload",
+    name: "INVALIDMESSAGEDATA",
+    message: "Invalid message payload",
     statusCode: 400,
-    messageToSend: `Invalid registration data: ${messages.join(", ")}`,
-    severety: ErrorSeverety.low,
-    extraData: {
-      errors: messages.join(", "),
-    },
-  });
-
-export const getInvalidLoginDataError = (messages: string[]): ControledError =>
-  new ControledError({
-    name: "INVALIDLOGINDATA",
-    message: "Invalid account creation payload",
-    statusCode: 400,
-    messageToSend: `Invalid login data: ${messages.join(", ")}`,
-    severety: ErrorSeverety.low,
-    extraData: {
-      errors: messages.join(", "),
-    },
-  });
-
-export const getInvalidGetUserDataError = (
-  messages: string[]
-): ControledError =>
-  new ControledError({
-    name: "INVALIDGETUSERDATA",
-    message: "Invalid get user data payload",
-    statusCode: 400,
-    messageToSend: `Invalid data: ${messages.join(", ")}`,
-    severety: ErrorSeverety.low,
-    extraData: {
-      errors: messages.join(", "),
-    },
-  });
-
-export const getInvalidKeyCheckData = (messages: string[]): ControledError =>
-  new ControledError({
-    name: "INVALIDKEYCHECKDATA",
-    message: "Invalid key check data",
-    statusCode: 400,
-    messageToSend: `Invalid data: ${messages.join(", ")}`,
+    messageToSend: `Invalid message data: ${messages.join(", ")}`,
     severety: ErrorSeverety.low,
     extraData: {
       errors: messages.join(", "),
