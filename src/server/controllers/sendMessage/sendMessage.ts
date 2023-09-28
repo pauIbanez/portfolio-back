@@ -27,6 +27,7 @@ const sendMessage = async (req: Request, res: Response, next: NextFunction) => {
     await sendEmail(toMeEmailData);
   } catch (error) {
     next(error);
+    return;
   }
 
   res.status(200).json({
