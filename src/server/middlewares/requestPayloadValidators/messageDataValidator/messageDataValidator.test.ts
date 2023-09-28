@@ -1,5 +1,8 @@
 import messageDataValidator from "./messageDataValidator";
-import { validMessagePayload } from "./messageDataValidator.testObjects";
+import {
+  missingNameMessagePayload,
+  validMessagePayload,
+} from "./messageDataValidator.testObjects";
 
 describe("Given messageDataValidator", () => {
   describe("When it's passed a valid payload", () => {
@@ -14,6 +17,21 @@ describe("Given messageDataValidator", () => {
 
       expect(next).toHaveBeenCalledWith();
       expect(req.body).toEqual(validMessagePayload);
+    });
+  });
+
+  describe("When it's passed a payload with missing firstName", () => {
+    test("Then it should call next an error", () => {
+      const req: any = {
+        body: missingNameMessagePayload,
+      };
+
+      const next = jest.fn();
+
+      messageDataValidator(req, null, next);
+
+      expect(next).toHaveBeenCalled();
+      expect(next).not.toHaveBeenCalledWith();
     });
   });
 });
