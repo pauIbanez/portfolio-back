@@ -3,7 +3,7 @@ import EmailData from "../../utils/email/types";
 import MessageData from "../../../types/MessageData";
 import getMessageReceivedEmail from "../../utils/email/emailBuilders/messageReceivedEmail";
 import getAwaitingAnswerEmail from "../../utils/email/emailBuilders/awaitingAnswerEmail";
-import sendEmail from "../../utils/email";
+import { sendEmail } from "../../utils/email";
 
 const sendMessage = async (req: Request, res: Response, next: NextFunction) => {
   const message = req.body as MessageData;
