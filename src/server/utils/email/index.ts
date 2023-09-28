@@ -1,9 +1,10 @@
+/* eslint-disable import/prefer-default-export */
 import nodemailer from "nodemailer";
 import debug from "debug";
 import chalk from "chalk";
 import EmailData from "./types";
 
-const debugToConsole = debug("backend-template:mailService");
+const debugToConsole = debug("portfolio:mailService");
 
 const config = {
   service: "gmail",
@@ -17,7 +18,7 @@ const from = process.env.EMAIL;
 
 const transporter = nodemailer.createTransport(config);
 
-const sendEmail = (emailData: EmailData): Promise<void> =>
+export const sendEmail = (emailData: EmailData): Promise<void> =>
   new Promise((resolve, reject) => {
     const emailToSend = { from, ...emailData };
 
@@ -34,5 +35,3 @@ const sendEmail = (emailData: EmailData): Promise<void> =>
       resolve();
     });
   });
-
-export default sendEmail;
