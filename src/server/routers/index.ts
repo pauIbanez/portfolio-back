@@ -4,6 +4,6 @@ import sendMessage from "../controllers/sendMessage/sendMessage";
 
 const mainRouter = express.Router();
 
-mainRouter.get("/newMessage", messageDataValidator, sendMessage);
+mainRouter.post("/newMessage", messageDataValidator, sendMessage);
 
 export default mainRouter;
