@@ -1,8 +1,8 @@
 import { NextFunction, Request, Response } from "express";
-import { getInvalidLoginDataError } from "../../../../data/errorObjects/dataValidationErrors";
-import loginData from "../../../../data/joiObjects/loginData";
+import messageData from "../../../../data/joiObjects/messageData";
+import { getInvalidMessageDataError } from "../../../../data/errorObjects/dataValidationErrors";
 
-const loginDataValidator = (
+const messageDataValidator = (
   req: Request,
   res: Response,
   next: NextFunction
@@ -14,11 +14,11 @@ const loginDataValidator = (
     stripUnknown: true,
   };
 
-  const { error, value } = loginData.validate(req.body, joiValidationOptions); // Use the loginData Joi object to validate the request body. (This object is found in data/JoiObjects)
+  const { error, value } = messageData.validate(req.body, joiValidationOptions); // Use the loginData Joi object to validate the request body. (This object is found in data/JoiObjects)
 
   // If the validation fails write an error and go next.
   if (error) {
-    const invalidLoginDataError = getInvalidLoginDataError(
+    const invalidLoginDataError = getInvalidMessageDataError(
       error.details.map((detail) => detail.message)
     );
     next(invalidLoginDataError);
@@ -29,5 +29,4 @@ const loginDataValidator = (
   req.body = value;
   next();
 };
-
-export default loginDataValidator;
+export default messageDataValidator;

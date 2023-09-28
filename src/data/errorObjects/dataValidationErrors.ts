@@ -2,7 +2,7 @@
 import { ErrorSeverety } from "../../types/errorTypes/ServerError";
 import ControledError from "./ControledError";
 
-export const getInvalidRegistrationDataError = (
+export const getInvalidMessageDataError = (
   messages: string[]
 ): ControledError =>
   new ControledError({
