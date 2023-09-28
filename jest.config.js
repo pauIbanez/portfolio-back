@@ -9,7 +9,6 @@ module.exports = {
     "src/**/*.ts",
     "!src/index.ts",
     "!src/server/startServer.ts",
-    "!src/database/index.ts",
     "!src/server/utils/email/**/*.ts",
   ],
 };
