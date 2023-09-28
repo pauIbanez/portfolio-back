@@ -8,7 +8,7 @@ import chalk from "chalk";
 import startServer from "./server/startServer";
 import app from "./server";
 
-const debugInConsole = debug("backend-template:root"); // Debug section setup
+const debugInConsole = debug("portfolio:root"); // Debug section setup
 
 // Enviroment varialbe grab
 const port = process.env.PORT || "4000";
