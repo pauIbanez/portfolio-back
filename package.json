@@ -2,7 +2,7 @@
   "name": "portfolio-back",
   "version": "1.0.0",
   "description": "",
-  "main": "./build/src/index.js",
+  "main": "./build/index.js",
   "scripts": {
     "test": "jest --passWithNoTests",
     "testWatch": "jest --watch --passWithNoTests",
