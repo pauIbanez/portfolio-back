@@ -7,7 +7,9 @@ import EmailData from "./types";
 const debugToConsole = debug("portfolio:mailService");
 
 const config = {
-  service: "gmail",
+  host: "smtp.zoho.eu",
+  port: 465,
+  secure: true,
   auth: {
     user: process.env.EMAIL,
     pass: process.env.EMAIL_PASSWORD,
