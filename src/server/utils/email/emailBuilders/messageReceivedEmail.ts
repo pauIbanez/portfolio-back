@@ -59,7 +59,7 @@ const getMessageReceivedEmail = (name: string, english: boolean) => `
       <br />
       King Regards,<br />`
         : `
-      He recibido tu mensaje, contestaré lo antes posible<br />
+      He recibido tu mensaje, contestaré lo antes posible. <br />
       <br />
       Si todavía no has tenido la oportunidad de ver completamente mi portafolio, te invito a echar otro vistazo y explorar lo que podrías haberte perdido! <br />
       <a href="pauibanez.me" target="_blank">Mi Portfolio</a> <br />
