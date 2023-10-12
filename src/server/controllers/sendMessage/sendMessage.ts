@@ -9,17 +9,20 @@ const sendMessage = async (req: Request, res: Response, next: NextFunction) => {
   const message = req.body as MessageData;
 
   const toSenderEmailData: EmailData = {
-    subject: `Hello ${message.firstName}! thanks for your email.`,
+    subject:
+      message.language === "en"
+        ? `Hello ${message.firstName}! Thanks for your email.`
+        : `Hola ${message.firstName}! Gracias por tu email.`,
     to: message.email,
     internalEmailName: "Contact soon",
-    html: getMessageReceivedEmail(message.firstName),
+    html: getMessageReceivedEmail(message.firstName, message.language === "en"),
   };
 
   const toMeEmailData: EmailData = {
     subject: message.subject,
     to: "pauibanez2001@gmail.com",
     internalEmailName: `Awaiting answer from ${message.firstName}`,
-    html: getAwaitingAnswerEmail(message),
+    html: getAwaitingAnswerEmail(message, message.language === "en"),
   };
 
   try {
