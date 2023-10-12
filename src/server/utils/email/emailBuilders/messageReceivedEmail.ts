@@ -2,6 +2,9 @@ const getMessageReceivedEmail = (name: string, english: boolean) => `
 <html>
   <head>
     <style>
+     * {
+        box-sizing: border-box;
+      }
       body {
         display: flex;
         flex-direction: column;
@@ -12,37 +15,44 @@ const getMessageReceivedEmail = (name: string, english: boolean) => `
       header {
         height: 300px;
         color: white;
+
         background-color: #9747ff;
-        display: flex;
-        align-items: center;
-        justify-content: center;
         font-weight: 700;
         font-size: 40px;
+        padding: 120px 0; 
+      }
+      header div {
+        margin: 0 auto;
+        height: 60px;
+        width: fit-content;
       }
 
-      main {
+      .content {
         padding: 50px;
       }
 
       a {
-        color: #9747ff;
+        color: #9747ff !important;
         text-decoration: none;
       }
     </style>
   </head>
   <body>
-    <header>${
-      english
-        ? `Thank you for your message ${name}!`
-        : `Gracias por contactar conmigo ${name}!`
-    }.</header>
-    <main>
+    <header> 
+      <div>${
+        english
+          ? `Thank you for your message ${name}!`
+          : `Gracias por contactar conmigo ${name}!`
+      }
+      </div>
+    </header>
+    <div class="content">
     ${
       english
         ? ` 
       I've received your message and I'll answer as soon as posible. <br />
       <br />
-      If you still havn't fully seen my portfolio I invite you to take another look and explore what you might have missed! <br />
+      If you still haven't fully seen my portfolio I invite you to take another look and explore what you might have missed! <br />
       <a href="pauibanez.me" target="_blank">My Portfolio</a> <br />
       <br />
       Thank you for geting in contact with me! <br />
@@ -59,7 +69,7 @@ const getMessageReceivedEmail = (name: string, english: boolean) => `
       Atentamente,<br />`
     }
       Pau Ibáñez, <br />
-    </main>
+    </div>
   </body>
 </html>
 `;

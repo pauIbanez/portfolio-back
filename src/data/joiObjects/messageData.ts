@@ -9,6 +9,7 @@ const messageData = Joi.object({
   email: Joi.string().required(),
   subject: Joi.string().required(),
   message: Joi.string().required(),
+  language: Joi.string().valid("en", "es").required(),
 });
 
 export default messageData;

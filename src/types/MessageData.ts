@@ -14,6 +14,7 @@ interface MessageData {
   email: string;
   subject: string;
   message: string;
+  language: "es" | "en";
 }
 
 export default MessageData;

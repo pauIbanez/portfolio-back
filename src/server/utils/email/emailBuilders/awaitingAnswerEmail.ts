@@ -1,7 +1,8 @@
 import MessageData from "../../../../types/MessageData";
 
-const getAwaitingAnswerEmail = (message: MessageData) => `
+const getAwaitingAnswerEmail = (message: MessageData, english: boolean) => `
 
+${english}
   Received at: ${Date.now().toLocaleString()}.
   Message Type: ${message.messageType}.
   ${message.typeVariable && `Variable: ${message.typeVariable}`}
