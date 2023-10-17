@@ -1,5 +1,9 @@
 import sendMessage from "./sendMessage";
-import { expectedValidResponse, message } from "./sendMessage.testObjects";
+import {
+  esMessage,
+  expectedValidResponse,
+  message,
+} from "./sendMessage.testObjects";
 
 const mockSendEmail = jest.fn();
 
@@ -12,12 +16,34 @@ afterEach(() => {
 });
 
 describe("Given sendMessage", () => {
-  describe("When it's called passing a message and email responds right", () => {
+  describe("When it's called passing a message (en) and email responds right", () => {
     test("Then it should call sendEmail twice and call res.json", async () => {
       mockSendEmail.mockResolvedValue(null);
 
       const req: any = {
         body: message,
+      };
+      const res: any = {
+        status: jest.fn().mockReturnThis(),
+        json: jest.fn(),
+      };
+
+      const next = jest.fn();
+
+      await sendMessage(req, res, next);
+
+      expect(next).not.toHaveBeenCalled();
+      expect(mockSendEmail).toHaveBeenCalledTimes(2);
+      expect(res.json).toHaveBeenCalledWith(expectedValidResponse);
+    });
+  });
+
+  describe("When it's called passing a message (es) and email responds right", () => {
+    test("Then it should call sendEmail twice and call res.json", async () => {
+      mockSendEmail.mockResolvedValue(null);
+
+      const req: any = {
+        body: esMessage,
       };
       const res: any = {
         status: jest.fn().mockReturnThis(),
