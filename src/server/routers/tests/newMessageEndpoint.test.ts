@@ -13,7 +13,7 @@ describe("Given /newMessage endpoint", () => {
       const requestPath = `/newMessage`;
 
       const { body } = await request(app)
-        .get(requestPath)
+        .post(requestPath)
         .send(validMessagePayload)
         .expect(200);
 
@@ -25,7 +25,7 @@ describe("Given /newMessage endpoint", () => {
       const requestPath = `/newMessage`;
 
       const { body } = await request(app)
-        .get(requestPath)
+        .post(requestPath)
         .send(invalidMessagePayload)
         .expect(400);
 

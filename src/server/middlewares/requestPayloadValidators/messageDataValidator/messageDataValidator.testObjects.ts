@@ -8,6 +8,7 @@ export const validMessagePayload: MessageData = {
   email: "email@mail.com",
   subject: "subject",
   message: "message",
+  language: "en",
 };
 
 export const missingNameMessagePayload = {
@@ -17,4 +18,5 @@ export const missingNameMessagePayload = {
   email: "email@mail.com",
   subject: "subject",
   message: "message",
+  language: "en",
 };
