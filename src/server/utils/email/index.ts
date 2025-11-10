@@ -26,7 +26,7 @@ export const sendEmail = (emailData: EmailData): Promise<void> =>
 
     transporter.sendMail(emailToSend, (error) => {
       if (error) {
-        reject();
+        reject(error);
         debugToConsole(
           chalk.redBright(
             `Error while sending ${emailData.internalEmailName} email to ${emailToSend.to}`
